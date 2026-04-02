@@ -1,0 +1,30 @@
+name: Run Main.py Every Hour (8AM–10PM)
+
+on:
+  schedule:
+    # Runs every hour from 07:00–21:00 UTC (08:00–22:00 Paris winter time)
+    - cron: "0 7-21 * * *"
+  workflow_dispatch: # Allows manual trigger from the GitHub UI
+
+jobs:
+  run-script:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run script
+      env:
+        BIGQUERY: ${{ secrets.BIGQUERY }}
+      run: python main.py
