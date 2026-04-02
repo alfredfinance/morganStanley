@@ -247,14 +247,13 @@ def extract_experience_level(title):
         (r'\bassociate\b|\bassocié\b', "Associate"),
         (r'\banalyst\b|\banalyste\b|\banalist\b', "Analyst"),
         (r'\bchief\b|\bhead\b', "C-Level"),
-        (r'\bV.I.E\b|\bVIE\b|\bvolontariat international\b|\bV I E\b|', "VIE"),
     ]
 
     for pattern, label in patterns:
         if re.search(pattern, title):
             return label
 
-    return "" 
+    return "Associate / not specified" 
 
 # Apply to dataframe
 new_data["experienceLevel"] = new_data["title"].apply(extract_experience_level)
