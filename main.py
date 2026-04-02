@@ -21,7 +21,7 @@ import os
 # SELENIUM OPTIONS
 # ─────────────────────────────────────────────
 options = Options()
-# options.add_argument("--headless=new")
+options.add_argument("--headless=new")
 options.add_argument("--disable-gpu")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
@@ -131,7 +131,7 @@ print(f"✅ Remaining job URLs to scrape: {len(df_urls)}")
 # PHASE 2 — SCRAPE EACH JOB PAGE
 # ─────────────────────────────────────────────
 options2 = Options()
-# options2.add_argument("--headless=new")
+options2.add_argument("--headless=new")
 options2.add_argument("--disable-gpu")
 options2.add_argument("--no-sandbox")
 options2.add_argument("--disable-dev-shm-usage")
