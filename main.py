@@ -40,7 +40,7 @@ time.sleep(random.uniform(4, 7))
 
 job_urls = []
 seen = set()
-MAX_PAGES = 100
+MAX_PAGES = 5
 
 for page_count in range(MAX_PAGES):
     try:
